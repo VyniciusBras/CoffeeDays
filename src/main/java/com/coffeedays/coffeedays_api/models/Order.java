@@ -2,10 +2,10 @@ package com.coffeedays.coffeedays_api.models;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Sale {
+public class Order {
     private Client client;
     private List<Product> product;
-    private LocalDateTime dateSale;
+    private LocalDateTime dateOrder;
 
     public Client getClient() {
         return client;
@@ -19,10 +19,10 @@ public class Sale {
     public void setProduct(List<Product> product) {
     this.product = product;
     }
-    public LocalDateTime getDateSale() {
-    return dateSale;
+    public LocalDateTime getDateOrder() {
+    return dateOrder;
     }
-    public void setDateSale(LocalDateTime dateSale) {
-    this.dateSale = dateSale;
+    public void setDateOrder(LocalDateTime dateOrder) {
+    this.dateOrder = dateOrder;
     }
 }
