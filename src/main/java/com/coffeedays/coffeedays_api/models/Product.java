@@ -1,16 +1,29 @@
 package com.coffeedays.coffeedays_api.models;
 
 public class Product {
+    private Integer id;
     private String name;
     private String description;
     private Double price;
     private Integer amount;
 
-    public Product(String name, String description, Double price, Integer amount) {
+    public Product() {
+    }
+
+    public Product(Integer id, String name, String description, Double price, Integer amount) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.amount = amount;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

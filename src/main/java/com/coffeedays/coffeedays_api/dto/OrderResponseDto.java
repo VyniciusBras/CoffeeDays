@@ -1,7 +1,5 @@
 package com.coffeedays.coffeedays_api.dto;
 
-import com.coffeedays.coffeedays_api.models.Order;
-
 public class OrderResponseDto {
     private String name;
     private Integer orderId;
@@ -35,6 +33,7 @@ public class OrderResponseDto {
     public double getTotalPrice() {
         return totalPrice;
     }
+
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
