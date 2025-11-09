@@ -5,10 +5,10 @@ public class Client {
     private String document;
     private String email;
 
-    public String getNome() {
+    public String getName() {
         return name;
     }
-    public void setNome(String nome) {
+    public void setName(String name) {
         this.name = name;
     }
     public String getDocument() {
