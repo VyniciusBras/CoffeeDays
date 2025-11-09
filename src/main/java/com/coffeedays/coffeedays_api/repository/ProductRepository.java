@@ -17,11 +17,13 @@ public class ProductRepository {
         Product macchiato_caramelo = new Product(3, "Macchiato de Caramelo","O Macchiato de Caramelo é uma popular bebida de café em camadas que combina café expresso, leite vaporizado ou frio, xarope de baunilha e uma finalização com calda de caramelo.",10.0,20);
         Product cafe_mocha = new Product(4, "Café Mocha","O café mocha é uma bebida de café que combina expresso, leite vaporizado e chocolate.",9.0,17);
         Product cafe_expresso = new Product(5, "Café Expresso","O Café expreso é uma bebida concentrada feita pela passagem de água quente sob alta pressão através de café moído e compactado.",9.0,17);
+        Product cafe_com_leite = new Product(6, "Café com leite","O Café com leite é uma bebida cremosa e reconfortante feita com café e leite, resultando em um sabor mais suave e menos ácido do que o café puro.",6.0,12);
         products.add(capuccino);
         products.add(mocaccino);
         products.add(macchiato_caramelo);
         products.add(cafe_mocha);
         products.add(cafe_expresso);
+        products.add(cafe_com_leite);
     }
 
     public Optional<Product> findById(Integer id) {
