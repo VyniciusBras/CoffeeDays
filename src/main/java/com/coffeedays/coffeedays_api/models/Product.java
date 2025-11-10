@@ -7,9 +7,6 @@ public class Product {
     private Double price;
     private Integer amount;
 
-    public Product() {
-    }
-
     public Product(Integer id, String name, String description, Double price, Integer amount) {
         this.id = id;
         this.name = name;
