@@ -13,10 +13,13 @@ import java.util.Map;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    public List<Product> getAllProducts() {
+        return productRepository.getAllProducts();
+    }
 
     public Map<String, String> validateProducts(List<Product> products) {
         Map<String, String> errors = new HashMap<>();
-        
+
         if (products == null || products.isEmpty()) {
             errors.put("error", "A lista de produtos não pode estar vazia");
             return errors;

@@ -9,32 +9,39 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/orders")   // <-- Agora todos endpoints começam com /orders
 public class OrderController {
 
     private final ProductService productService;
 
-    @PostMapping("/order")
+    @PostMapping
     public ResponseEntity<?> order(@RequestBody OrderRequestDto orderRequestDto) {
-        // Verificar se os produtos existem e se há quantidade disponível
-        Map<String, String> errors = productService.validateProducts(orderRequestDto.product);
-        
-        if (!errors.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
-        }
+            Map<String, String> errors = productService.validateProducts(orderRequestDto.product);
 
-        Order order = new Order();
-        order.setClient(orderRequestDto.client);
-        order.setProduct(orderRequestDto.product);
-        order.setDateOrder(LocalDateTime.now());
-        
-        // Mapear de Order para OrderResponseDto
-        OrderResponseDto orderResponseDto = mapOrderToOrderResponseDto(order);
+            if (!errors.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+            }
 
+            Order order = new Order();
+            order.setClient(orderRequestDto.client);
+            order.setProduct(orderRequestDto.product);
+            order.setDateOrder(LocalDateTime.now());
+            order.setOrderId((int)(Math.random() * 100000));
+            order.setOrderStatus("CONFIRMED");
+
+            OrderResponseDto orderResponseDto = mapOrderToOrderResponseDto(order);
         return ResponseEntity.ok().body(orderResponseDto);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getOrders() {
+        // Como ainda não existe armazenamento real, retorna vazio
+        return ResponseEntity.ok().body(List.of());
     }
 
     private OrderResponseDto mapOrderToOrderResponseDto(Order order) {
@@ -47,7 +54,7 @@ public class OrderController {
         responseDto.setOrderId(order.getOrderId());
         responseDto.setOrderStatus(order.getOrderStatus());
         responseDto.setTotalPrice(order.getTotalPrice());
-        
+
         return responseDto;
     }
 }
