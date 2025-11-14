@@ -19,7 +19,7 @@ public class OrderController {
 
     private final ProductService productService;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<?> order(@RequestBody OrderRequestDto orderRequestDto) {
             Map<String, String> errors = productService.validateProducts(orderRequestDto.product);
 
@@ -33,7 +33,7 @@ public class OrderController {
             order.setDateOrder(LocalDateTime.now());
             order.setOrderId((int)(Math.random() * 100000));
             order.setOrderStatus("CONFIRMED");
-
+            //Criar um OrderRepository com uma lista de Orders e salvar essa order criada na lista de Orders
             OrderResponseDto orderResponseDto = mapOrderToOrderResponseDto(order);
         return ResponseEntity.ok().body(orderResponseDto);
     }

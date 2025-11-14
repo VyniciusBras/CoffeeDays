@@ -18,4 +18,6 @@ public class ProductController {
     public ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
+    //Criar metodo PostMapping, para criar novos produtos, criando um novo CreateDto para isso (Menos Id)
+    //
 }
