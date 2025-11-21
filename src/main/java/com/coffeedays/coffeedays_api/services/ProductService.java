@@ -53,5 +53,9 @@ public class ProductService {
         
         return errors;
     }
+
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
 }
 

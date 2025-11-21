@@ -58,4 +58,16 @@ public class ProductRepository {
     public List<Product> getAllProducts() {
         return new ArrayList<>(products);
     }
+
+    public Product save(Product product) {
+        if (product.getId() == null) {
+            Integer nextId = products.stream()
+                    .mapToInt(Product::getId)
+                    .max()
+                    .orElse(0) + 1;
+            product.setId(nextId);
+        }
+        products.add(product);
+        return product;
+    }
 }
