@@ -1,4 +1,4 @@
-package com.coffeedays.coffeedays_api.repository;
+package com.coffeedays.coffeedays_api.repository.implementation;
 
 import com.coffeedays.coffeedays_api.models.User;
 import org.springframework.stereotype.Repository;
@@ -8,13 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository {
+public class UserPersistenceAdapter {
 
     private final List<User> users = new ArrayList<>();
 
-    public UserRepository() {
-
-        users.add(new User("adm", "ad"));
+    public UserPersistenceAdapter() {
+        users.add(new User("admin", "123456"));
     }
 
     public Optional<User> findByUsername(String username) {

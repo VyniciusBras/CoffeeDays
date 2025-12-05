@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: "CoffeeDays - API"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db-coffeedays
+    username: user-coffeedays
+    password: password
+
+server:
+  servlet:
+    context-path: "/api"

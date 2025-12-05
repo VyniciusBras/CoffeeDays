@@ -1,7 +1,9 @@
 package com.coffeedays.coffeedays_api.services;
 
 import com.coffeedays.coffeedays_api.models.Product;
-import com.coffeedays.coffeedays_api.repository.ProductRepository;
+import com.coffeedays.coffeedays_api.port.ProductPersistencePort;
+import com.coffeedays.coffeedays_api.repository.interfaces.ProductRepository;
+import jakarta.persistence.Persistence;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
@@ -12,9 +14,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    private final ProductPersistencePort productPersistencePort;
     public List<Product> getAllProducts() {
-        return productRepository.getAllProducts();
+        return productPersistencePort.getAllProducts();
     }
 
     public Map<String, String> validateProducts(List<Product> products) {
@@ -33,7 +35,7 @@ public class ProductService {
                 continue;
             }
             
-            if (!productRepository.productExists(productId)) {
+            /*if (!productRepository.productExists(productId)) {
                 errors.put("product_" + productId, "Produto não encontrado com ID: " + productId);
                 continue;
             }
@@ -48,14 +50,14 @@ public class ProductService {
                 Integer availableQuantity = productRepository.getAvailableQuantity(productId);
                 errors.put("product_" + productId, "Quantidade insuficiente. Disponível: "
                         + availableQuantity + ", Solicitado: " + requestedAmount);
-            }
+            }*/
         }
         
         return errors;
     }
 
     public Product createProduct(Product product) {
-        return productRepository.save(product);
+        return productPersistencePort.persist(product);
     }
 }
 
