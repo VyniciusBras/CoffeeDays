@@ -9,3 +9,6 @@ spring:
 server:
   servlet:
     context-path: "/api"
+
+coffee-days:
+  token-secret-key: ${COFFEEDAYS_TOKEN_SECRET_KEY}

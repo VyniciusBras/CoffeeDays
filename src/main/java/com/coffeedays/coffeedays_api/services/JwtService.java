@@ -2,6 +2,7 @@ package com.coffeedays.coffeedays_api.services;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,8 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    private static final String SECRET = "chimarrãodosgauchosdors";
+    @Value("${coffee-days.token-secret-key}")
+    private String SECRET;
     public static final int TOKEN_EXPIRATION_TIME_IN_HOURS = 2;
 
     public String generateToken(String username) {

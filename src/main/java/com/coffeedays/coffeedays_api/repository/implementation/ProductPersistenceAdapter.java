@@ -27,6 +27,5 @@ public class ProductPersistenceAdapter implements ProductPersistencePort {
     public List<Product> getAllProducts() {
         List<ProductEntity> products = StreamSupport.stream(productRepository.findAll().spliterator(), false).toList();
         return productMapper.toProduct(products);
-
     }
 }
