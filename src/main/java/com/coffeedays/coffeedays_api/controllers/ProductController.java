@@ -25,13 +25,12 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody CreateProductDto dto) {
 
-        Product product = new Product(
-                null,
-                dto.getName(),
-                dto.getDescription(),
-                dto.getPrice(),
-                dto.getAmount()
-        );
+       Product product = new Product(
+               null,
+               dto.getName(),
+               dto.getDescription(),
+               dto.getPrice()
+       );
 
         Product createdProduct = productService.createProduct(product);
 

@@ -1,10 +1,10 @@
-package com.coffeedays.coffeedays_api.repository.implementation;
+package com.coffeedays.coffeedays_api.adapter;
 
 import com.coffeedays.coffeedays_api.entities.ProductEntity;
 import com.coffeedays.coffeedays_api.mapper.ProductMapper;
 import com.coffeedays.coffeedays_api.models.Product;
 import com.coffeedays.coffeedays_api.port.ProductPersistencePort;
-import com.coffeedays.coffeedays_api.repository.interfaces.ProductRepository;
+import com.coffeedays.coffeedays_api.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

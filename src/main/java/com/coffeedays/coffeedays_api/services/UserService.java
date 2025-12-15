@@ -1,13 +1,8 @@
 package com.coffeedays.coffeedays_api.services;
 
 import com.coffeedays.coffeedays_api.dto.LoginDto;
-import com.coffeedays.coffeedays_api.models.User;
 
-import com.coffeedays.coffeedays_api.repository.interfaces.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class UserService {

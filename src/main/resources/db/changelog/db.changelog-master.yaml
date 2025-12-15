@@ -6,3 +6,17 @@ databaseChangeLog:
       changes:
         - sqlFile:
             path: db/changelog/migrations/1-create-products-table.sql
+  - changeSet:
+      failOnError: true
+      id: 2-create-order-table
+      author: vynicius-brasil
+      changes:
+        - sqlFile:
+            path: db/changelog/migrations/2-create-order-table.sql
+  - changeSet:
+      failOnError: true
+      id: 3-create-order-item-table
+      author: vynicius-brasil
+      changes:
+        - sqlFile:
+            path: db/changelog/migrations/3-create-order-item.sql

@@ -2,8 +2,6 @@ package com.coffeedays.coffeedays_api.services;
 
 import com.coffeedays.coffeedays_api.models.Product;
 import com.coffeedays.coffeedays_api.port.ProductPersistencePort;
-import com.coffeedays.coffeedays_api.repository.interfaces.ProductRepository;
-import jakarta.persistence.Persistence;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
@@ -15,6 +13,7 @@ import java.util.Map;
 public class ProductService {
 
     private final ProductPersistencePort productPersistencePort;
+
     public List<Product> getAllProducts() {
         return productPersistencePort.getAllProducts();
     }

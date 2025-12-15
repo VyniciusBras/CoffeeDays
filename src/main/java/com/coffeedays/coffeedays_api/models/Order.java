@@ -9,14 +9,14 @@ import java.util.List;
 @Setter
 public class Order {
     private Client client;
-    private List<Product> product;
-    private LocalDateTime dateOrder;
+    private List<OrderItem> orderItem;
+    private LocalDateTime orderDate;
     private Integer orderId;
     private String orderStatus;
     private Double totalPrice;
 
-    public Double getTotalPrice() {
+   /* public Double getTotalPrice() {
         return product.stream().map(prod -> prod.getPrice() * prod.getAmount()).reduce(0.0, Double::sum);
-    }
+    }*/
 
 }

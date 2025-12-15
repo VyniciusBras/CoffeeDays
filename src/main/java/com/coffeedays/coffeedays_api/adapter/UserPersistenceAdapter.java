@@ -1,4 +1,4 @@
-package com.coffeedays.coffeedays_api.repository.implementation;
+package com.coffeedays.coffeedays_api.adapter;
 
 import com.coffeedays.coffeedays_api.models.User;
 import org.springframework.stereotype.Repository;
