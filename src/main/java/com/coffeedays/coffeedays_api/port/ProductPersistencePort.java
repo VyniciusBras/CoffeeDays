@@ -7,5 +7,5 @@ import java.util.List;
 public interface ProductPersistencePort {
     Product persist(Product product);
     List<Product> getAllProducts();
-
+    Product getProductById(Integer id);
 }

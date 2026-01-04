@@ -22,7 +22,7 @@ public class OrderEntity {
     private LocalDateTime orderDate;
     private double totalPrice;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItemEntity> orderItems;
 
     public void addOrderItem(OrderItemEntity orderItem) {

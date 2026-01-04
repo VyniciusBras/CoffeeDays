@@ -28,4 +28,10 @@ public class ProductPersistenceAdapter implements ProductPersistencePort {
         List<ProductEntity> products = StreamSupport.stream(productRepository.findAll().spliterator(), false).toList();
         return productMapper.toProduct(products);
     }
+
+  @Override
+  public Product getProductById(Integer id) {
+    ProductEntity productEntity = productRepository.findById(id).orElse(null);
+    return productMapper.toProduct(productEntity);
+  }
 }

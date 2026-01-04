@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductMapper {
     ProductEntity toEntity(Product product);
     List<Product> toProduct(List<ProductEntity> productEntity);
+    Product toProduct(ProductEntity productEntity);
 }

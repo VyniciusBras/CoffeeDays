@@ -17,6 +17,7 @@ public class OrderItemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Double price;
+    private Integer amount;
     @OneToOne
     private ProductEntity product;
     @ManyToOne

@@ -18,6 +18,10 @@ public class ProductService {
         return productPersistencePort.getAllProducts();
     }
 
+    public Product getProductById(Integer id) {
+      return productPersistencePort.getProductById(id);
+    }
+
     public Map<String, String> validateProducts(List<Product> products) {
         Map<String, String> errors = new HashMap<>();
 

@@ -51,6 +51,7 @@ public class OrderController {
         List<OrderItem> orderItems = new ArrayList<>();
         orderItemRequestDto.forEach(orderItemRequest -> {
             OrderItem orderItem = new OrderItem();
+            orderItem.setProduct(productService.getProductById(orderItemRequest.getProductId()));
             orderItem.setAmount(orderItemRequest.getAmount());
             orderItem.setPrice(orderItemRequest.getPrice());
             orderItems.add(orderItem);

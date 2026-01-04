@@ -4,12 +4,14 @@ import com.coffeedays.coffeedays_api.entities.OrderEntity;
 import com.coffeedays.coffeedays_api.entities.OrderItemEntity;
 import com.coffeedays.coffeedays_api.entities.ProductEntity;
 import com.coffeedays.coffeedays_api.mapper.OrderMapper;
+import com.coffeedays.coffeedays_api.mapper.ProductMapper;
 import com.coffeedays.coffeedays_api.models.Order;
 import com.coffeedays.coffeedays_api.models.OrderItem;
 import com.coffeedays.coffeedays_api.port.OrderPersistencePort;
 import com.coffeedays.coffeedays_api.repository.OrderRepository;
 import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
 
     private final OrderMapper orderMapper;
     private final OrderRepository orderRepository;
+    private final ProductMapper productMapper;
 
     @Override
     public Order persist(Order order) {
@@ -30,8 +33,11 @@ public class OrderPersistenceAdapter implements OrderPersistencePort {
             OrderItemEntity orderItemEntity = new OrderItemEntity();
             orderItemEntity.setId(orderItem.getId());
             orderItemEntity.setPrice(orderItem.getPrice());
+            orderItemEntity.setAmount(orderItem.getAmount());
+            orderItemEntity.setProduct(productMapper.toEntity(orderItem.getProduct()));
             orderEntity.addOrderItem(orderItemEntity);
         });
+
         orderRepository.save(orderEntity);
         return order;
     }
